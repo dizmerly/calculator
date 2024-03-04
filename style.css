@@ -1,0 +1,54 @@
+.bodyCalc.bg{
+    display: flex; 
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 400px;
+    height: 600px;
+    background-color: black;
+    border-radius: 60px;
+}
+
+.screen{
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 80%;
+    height: 100px;
+    background-color: rgb(127, 127, 127);
+    border-radius: 20px;
+}
+
+.bodyCalc.buttonsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+
+    width: 80%;
+    height: 300px;
+}
+
+.bodyCalc .btn {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    font-family: "Helvetica";
+    font-weight: 200;
+    border-radius: 80px;
+
+}
+
+.btn.divide, 
+.btn.add, .btn.multiply,
+.btn.subtract{
+    background-color: orange;
+}
+
+.btn.clear, .btn.percent, .btn.negative{
+    background-color: lightgray;
+}
