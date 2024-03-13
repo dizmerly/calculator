@@ -60,7 +60,7 @@
 .btn.divide, 
 .btn.add, .btn.multiply,
 .btn.subtract{
-    background-color: orange;
+    background-color: rgb(255, 166, 0);
 }
 
 .btn.clear, .btn.percent, .btn.negative{
@@ -70,4 +70,8 @@
 
 .btn.zero{
     width: 152px;
+}
+
+.btn.operator.selected{
+    background-color: rgb(252, 204, 130);
 }
