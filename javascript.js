@@ -1,6 +1,3 @@
-console.log(math.evaluate(2+4));
-
-
 const body = document.querySelector(".bodyCalc");
 const buttons = document.querySelectorAll(".btn");
 const screen = document.querySelector(".screen")
