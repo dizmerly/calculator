@@ -1,4 +1,4 @@
-import * as math from 'mathjs';
+console.log(math.evaluate(2+4));
 
 
 const body = document.querySelector(".bodyCalc");
@@ -43,5 +43,4 @@ buttons.forEach((button) =>
 }); 
 
 
-console.log(math.evaluate("2+2"));
 
