@@ -1,5 +1,4 @@
-import { create, all } from 'mathjs'
-
+import * as math from 'mathjs';
 
 
 const body = document.querySelector(".bodyCalc");
