@@ -33,30 +33,42 @@ buttons.forEach((button) =>
         }
         else if(button.className.indexOf("operator") != -1)
         {
-            equation += button.getAttribute('data-target');
-            button.classList.add("selected");
-            clearContent(screen);
+            if(button.classList.contains("selected") == false){
+                equation += button.getAttribute('data-target');
+                button.classList.add("selected");
+                clearContent(screen);
+            }
         }
         else if(button.getAttribute('data-target') == "clear")
         {
             clearContent(screen);
             clearSelection(document.getElementsByClassName("selected"));
+            equation = ""; 
         }
         else if(button.getAttribute('data-target') == "equals")
         {
             clearContent(screen);
-            updateContent(screen, math.evaluate(equation));
+            updateContent(screen, Math.round(math.evaluate(equation)));
             equation = "";
-            clearSelection(document.getElementsByClassName("selected"));
-            
+            clearSelection(document.getElementsByClassName("selected"));         
+        }
+        else if(button.getAttribute('data-target') == "negative"){
             
         }
+        else if(button.getAttribute('data-target') == 'decimal'){
+            updateContent(screen, ".");
+        } 
 
         else
         {
             console.log("Clicked " + button.textContent);
         }
 
+
+        if(screen.textContent == "NaN"){
+            clearContent(screen)
+            updateContent(screen, "ERROR");
+        }
     });
 }); 
 
