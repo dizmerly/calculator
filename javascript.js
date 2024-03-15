@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll(".btn");
 const screen = document.querySelector(".screen")
 
 let equation = ""; 
+let queue = "";
 
 let updateContent = (destination, content) => {
     if((destination.textContent).length < 9){
@@ -27,16 +28,19 @@ buttons.forEach((button) =>
     {   
         if(button.className.indexOf("number") != -1)
         {
+            queue+= button.textContent;
             updateContent(screen, button.textContent);
-            equation += screen.textContent;
+          
 
         }
         else if(button.className.indexOf("operator") != -1)
         {
             if(button.classList.contains("selected") == false){
+                equation += queue; 
                 equation += button.getAttribute('data-target');
                 button.classList.add("selected");
                 clearContent(screen);
+                queue = "";
             }
         }
         else if(button.getAttribute('data-target') == "clear")
@@ -44,26 +48,34 @@ buttons.forEach((button) =>
             clearContent(screen);
             clearSelection(document.getElementsByClassName("selected"));
             equation = ""; 
+            queue = "";
         }
         else if(button.getAttribute('data-target') == "equals")
         {
+            equation += queue;
             clearContent(screen);
             updateContent(screen, Math.round(math.evaluate(equation)));
             equation = "";
+            queue = "";
             clearSelection(document.getElementsByClassName("selected"));         
         }
         else if(button.getAttribute('data-target') == "negative"){
-            
+            let num = parseInt(screen.textContent); 
+            num = (num * -1).toString();
+            clearContent(screen);
+            updateContent(screen, num);
+            queue = num;
+
         }
         else if(button.getAttribute('data-target') == 'decimal'){
-            updateContent(screen, ".");
+
         } 
 
         else
         {
             console.log("Clicked " + button.textContent);
         }
-
+   
 
         if(screen.textContent == "NaN"){
             clearContent(screen)
