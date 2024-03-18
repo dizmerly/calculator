@@ -68,12 +68,19 @@ buttons.forEach((button) =>
 
         }
         else if(button.getAttribute('data-target') == "percent"){
-            queue+= button.textContent;
-            updateContent(screen, button.textContent);
+            if(button.classList.contains("selected") == false){
+                button.classList.add("selected");
+                queue+= button.textContent;
+                updateContent(screen, button.textContent);
+            }
         }
         else if(button.getAttribute('data-target') == 'decimal'){
-            queue+= button.textContent;
-            updateContent(screen, button.textContent);
+            if(button.classList.contains("selected") == false){
+                button.classList.add("selected");
+                queue+= button.textContent;
+                updateContent(screen, button.textContent);
+            }
+
         } 
 
         else
