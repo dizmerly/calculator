@@ -54,7 +54,7 @@ buttons.forEach((button) =>
         {
             equation += queue;
             clearContent(screen);
-            updateContent(screen, Math.round(math.evaluate(equation)));
+            updateContent(screen, Math.round(math.evaluate(equation) * 100) /100);
             equation = "";
             queue = "";
             clearSelection(document.getElementsByClassName("selected"));         
@@ -67,8 +67,13 @@ buttons.forEach((button) =>
             queue = num;
 
         }
+        else if(button.getAttribute('data-target') == "percent"){
+            queue+= button.textContent;
+            updateContent(screen, button.textContent);
+        }
         else if(button.getAttribute('data-target') == 'decimal'){
-
+            queue+= button.textContent;
+            updateContent(screen, button.textContent);
         } 
 
         else
@@ -83,4 +88,6 @@ buttons.forEach((button) =>
         }
     });
 }); 
+
+
 
